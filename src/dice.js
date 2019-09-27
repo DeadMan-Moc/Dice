@@ -9,7 +9,7 @@ class Die {
     if (arguments.length== 2){
       this.probabilities = arguments[1];
       for (let i = 0; i < probabilities.length; i += 1) {
-        if (probabilities[i] < 0) {
+        if (probabilities[i] <= 0) {
           throw new Error("Negatives probabilities not allowed").message;
         }
         
@@ -17,15 +17,34 @@ class Die {
           throw new Error("Only integer values allowed").message;
         }
       }
+      sum += arguments[i]
+      if (sum < 0) {
+        throw new Error("Sum cannot be less than 0")
+      }
     }
 }
+  
   roll(){
-    return (this.value = Math.floor(Math.random() * this.sides));
+    let rand =  (this.value = Math.floor(Math.random(1 - 6) * this.sides) + 1);
+    return this.value = rand;
   }
+ 
+
   setProbabilities(probabilities){
-    this.probabilities = probabilities
+    this.probabilities = probabilities;
+    this.weightedDice();
+  }
+  weightedDice(){
+    let list = [];
+    for(var i=1;i<= this.sides;i++){
+      for(var index=0;index < this.probabilities[i - 1]; index++){
+        list.push(i);
+      }
+    }
+    this.value = list[this.roll()];
   }
 }
+
 
 class DiceFactory extends Die{
   constructor(dice){
@@ -47,7 +66,14 @@ class DiceFactory extends Die{
 
 // console.log(die6.value) // this would print a number between 1 and 6 inclusive
 // console.log(die20.value) 
-let dieDodgy6 = new Die(6,[1,1,1,1,1,2])
-dieDodgy6.roll();
+// let dieDodgy6 = new Die(6);
+// dieDodgy6.roll();
+// dieDodgy6.weightedDice();
+// dieDodgy6.setProbabilities([1,1,1,1,1,2])
 
-console.log(dieDodgy6.value) 
+// console.log(dieDodgy6.value) 
+let dice2= new Die(3);
+dice2.setProbabilities([1,3,6]);
+dice2.roll();
+//dice2.setProbabilities([1,1,1,1,1,2]);
+console.log(dice2);
