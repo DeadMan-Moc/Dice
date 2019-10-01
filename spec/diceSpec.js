@@ -1,19 +1,16 @@
-describe("Dice", () => {
-    it("Should return range of 1 - 6", () => {
-        let die = new Die ();
-        let pop = die.roll(6);
-        expect(pop).toBe()
-    });
+describe("Dice should return error messages", () => {
+    it("Returns error messages", ()=>{
+        
+    })    
+})
 
-    it("Should return range of error message", () => {
-        let die = new Die ();
-        let pop = die.roll();
-        expect(pop).toBe()
-    });
-
-    it("Should return range of 1 - 6", () => {
-        let die = new Die ();
-        let pop = die.roll();
-        expect(pop).toBe()
+describe('Dice returns 1 value of its sides', ()=>{
+    it('Returns value between 1 and 6', ()=>{
+    let dice = new Die(6)
+    let value = dice.roll()
+    if (value >= 1 && value <= 6) {
+         var range = true;
+    }
+    expect(range).toBe(true);
     });
 })
