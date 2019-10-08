@@ -22,10 +22,10 @@ class Die {
         throw new Error("Sum cannot be less than 0")
       }
     }
-}
+  }
   
   roll(){
-    let rand =  (this.value = Math.floor(Math.random(1 - 6) * this.sides) + 1);
+    let rand =  (this.value = Math.floor(Math.random() * this.weightedDice().length) + 1);
     return this.value = rand;
   }
  
@@ -36,8 +36,8 @@ class Die {
   }
   weightedDice(){
     let list = [];
-    for(var i=1;i<= this.sides;i++){
-      for(var index=0;index < this.probabilities[i - 1]; index++){
+    for(var i = 1;i<= this.sides;i++){
+      for(var index = 0; index < this.probabilities[i - 1]; index++){
         list.push(i);
       }
     }
