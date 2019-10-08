@@ -25,7 +25,7 @@ class Die {
   }
   
   roll(){
-    let rand =  (this.value = Math.floor(Math.random() * this.weightedDice().length) + 1);
+    let rand =  (this.value = Math.floor(Math.random() * this.sides) + 1);
     return this.value = rand;
   }
  
