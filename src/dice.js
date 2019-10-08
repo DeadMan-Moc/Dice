@@ -50,7 +50,8 @@ class DiceFactory extends Die{
   constructor(dice){
     this.dice = dice
     if (probabilities.length == 2){
-      
+      let a = new Die();
+      return a;
     }
   }
   makeDie(){
@@ -58,18 +59,6 @@ class DiceFactory extends Die{
   }
 }
 
-// let die6 = new Die(6)
-// die6.roll()
-
-// let die20 = new Die(20)
-// die20.roll()
-
-// console.log(die6.value) // this would print a number between 1 and 6 inclusive
-// console.log(die20.value) 
-// let dieDodgy6 = new Die(6);
-// dieDodgy6.roll();
-// dieDodgy6.weightedDice();
-// dieDodgy6.setProbabilities([1,1,1,1,1,2])
 
 // console.log(dieDodgy6.value) 
 let dice2= new Die(3);

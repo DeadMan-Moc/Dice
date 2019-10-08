@@ -1,6 +1,6 @@
 describe("Dice should return error messages", () => {
     it("Returns error messages", ()=>{
-        let dice = new Die([])
+        let dice = new Die([1])
         
     })    
 })
