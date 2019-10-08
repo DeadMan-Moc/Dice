@@ -50,7 +50,7 @@ class DiceFactory extends Die{
   constructor(dice){
     this.dice = dice
     if (probabilities.length == 2){
-      let a = new Die();
+      let a = new Die(dice, arguments[1]);
       return a;
     }
   }
